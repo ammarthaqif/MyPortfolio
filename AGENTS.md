@@ -7,6 +7,7 @@ All features, components, and code developed for this project must remain **read
 ### 1. Automated CI/CD Deployment Standard
 - **Workflow File**: Maintain `/.github/workflows/deploy.yml` with the official GitHub Pages deployment actions (`actions/checkout@v4`, `actions/setup-node@v4`, `actions/configure-pages@v5`, `actions/upload-pages-artifact@v3`, `actions/deploy-pages@v4`).
 - **Triggers**: Automated build & deploy on `push` to `main` and `master`, plus manual `workflow_dispatch`.
+- **Lockfile Resiliency**: Keep `package-lock.json` committed in the root repository. In `actions/setup-node@v4`, avoid rigid `cache: 'npm'` options that fail the build if a lockfile is omitted; instead use resilient dependency installation (`if [ -f package-lock.json ]; then npm ci; else npm install; fi`).
 - **Zero Config Required**: The repository owner only needs to set GitHub Pages Source to **"GitHub Actions"** in repository settings once; every subsequent push deploys automatically without writing custom scripts, Dockerfiles, or manual build steps.
 
 ### 2. Static Hosting & Base Path Compatibility

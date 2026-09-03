@@ -18,6 +18,7 @@ The repository includes a ready-to-run GitHub Actions workflow configured for mo
 - **Concurrency Management**:
   - Group `pages` with `cancel-in-progress: false` ensures zero race conditions during deployment rollout.
 - **Build & Packaging Job**:
+  - Sets up Node.js v20 via `actions/setup-node@v4` without rigid cache locks to prevent "Dependencies lock file is not found" errors.
   - Installs dependencies using `package-lock.json` (`npm ci`) or fallback `npm install`.
   - Runs full TypeScript typechecking via `npm run lint`.
   - Compiles the production bundle to `dist/` via `npm run build`.
