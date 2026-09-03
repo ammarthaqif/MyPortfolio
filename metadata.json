@@ -1,0 +1,6 @@
+{
+  "name": "App Portfolio",
+  "description": "A clean, responsive portfolio showcasing applications developed and published, featuring project filtering, interactive previews, custom app management, and a contact section.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
